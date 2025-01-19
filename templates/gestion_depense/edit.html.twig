@@ -1,0 +1,39 @@
+{# templates/depense/edit.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modifier Dépense</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Modifier Dépense</h1>
+        <form action="{{ path('depense_edit', { 'id': depense.id }) }}" method="post">
+            <div class="form-group">
+                <label for="title">Titre</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{ depense.title }}">
+            </div>
+            <div class="form-group">
+                <label for="amount">Montant</label>
+                <input type="text" class="form-control" id="amount" name="amount" value="{{ depense.amount }}">
+            </div>
+            <div class="form-group">
+                <label for="date">Date de Dépense</label>
+                <input type="datetime-local" class="form-control" id="date" name="date" value="{{ depense.date|date('Y-m-d\TH:i') }}">
+            </div>
+            <div class="form-group">
+                <label for="category">Catégorie</label>
+                <select class="form-control" id="category" name="category">
+                    <option value="Alimentation" {% if depense.category == 'Alimentation' %}selected{% endif %}>Alimentation</option>
+                    <option value="Transport" {% if depense.category == 'Transport' %}selected{% endif %}>Transport</option>
+                    <option value="Loisirs" {% if depense.category == 'Loisirs' %}selected{% endif %}>Loisirs</option>
+                    <option value="Santé" {% if depense.category == 'Santé' %}selected{% endif %}>Santé</option>
+                    <option value="Autre" {% if depense.category == 'Autre' %}selected{% endif %}>Autre</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Modifier Dépense</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Ajouter une Dépense</h1>
+
+        <form action="{{ path('depense_new') }}" method="POST">
+            <!-- Titre -->
+            <div class="form-group">
+                <label for="title">Titre</label>
+                <input type="text" id="title" name="title" class="form-control" required>
+            </div>
+
+            <!-- Montant -->
+            <div class="form-group">
+                <label for="amount">Montant</label>
+                <input type="number" id="amount" name="amount" class="form-control" step="0.01" required>
+            </div>
+
+            <!-- Date de Dépense -->
+            <div class="form-group">
+                <label for="date">Date de Dépense</label>
+                <input type="date" id="date" name="date" class="form-control" required>
+            </div>
+
+            <!-- Catégorie -->
+            <div class="form-group">
+                <label for="category">Catégorie</label>
+                <select class="form-control" id="category" name="category">
+                    <option value="Alimentation">Alimentation</option>
+                    <option value="Transport" >Transport</option>
+                    <option value="Loisirs" >Loisirs</option>
+                    <option value="Santé" >Santé</option>
+                    <option value="Autre">Autre</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Ajouter la Dépense</button>
+        </form>
+    </div>
+</body>
+</html>
